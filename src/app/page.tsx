@@ -43,9 +43,36 @@ const BRANDS = [
 ];
 
 const REVIEWS = [
-  { text: "Best stockist in North Karnataka for SKF and Fenner. Same-day delivery has saved our mill from downtime multiple times.", author: "Rajesh Patil", role: "Rice Mill Owner, Dharwad", initial: "R" },
-  { text: "Very competitive pricing on jaw crusher spares and conveyor belts. Excellent technical knowledge — helped us select the right heavy-duty bearings.", author: "Manjunath S.", role: "Stone Crusher Operator, Haveri", initial: "M" },
-  { text: "One-stop shop for all industrial needs. Sourcing roller chains and pulleys from them since 2018. Prompt WhatsApp response every time.", author: "Vinay Kumar", role: "Plant Manager, Hubballi", initial: "V" },
+  {
+    text: "Bearings swalpa costly aaguttha anta hesardru, aadre IBCC lly SKF 6205 bearing price check maadidaga same day stock iralilla, maarananalli 2 tass loge deliver maadidru. Genuine product maathra – no duplicate. Our rice sheller running smooth for 8 months now.",
+    author: "Basavaraj Hiremath",
+    role: "Proprietor, Hiremath Rice Industries, Gadag",
+    initial: "B",
+    stars: 5,
+    date: "2 weeks ago",
+    product: "SKF 6205 Deep Groove Bearings (Qty: 12)",
+    verified: true,
+  },
+  {
+    text: "Stone crusher la jaw plates naavu kashtapatti kaLithaiddvi. IBCClly toggle plate, jaw plate set ready stock ithtu – price quote 15 min loge WhatsApp la bandhu. Fitting also correct, machine full load la kaLithide. Thank you IBCC team.",
+    author: "Santosh Kumbar",
+    role: "Stone Crusher Owner, Haveri District",
+    initial: "S",
+    stars: 5,
+    date: "1 month ago",
+    product: "Jaw Crusher Toggle Plate & Jaw Plate Set",
+    verified: true,
+  },
+  {
+    text: "Fenner B-section V-belts for our textile loom — took 3 pcs. Within same afternoon, Gokul Road shop la stock ready iralilla antha hesaru, aadre Ashok (owner) phone maddu adjust maadidru. That personal service is rare nowadays. Will buy again.",
+    author: "Pradeep Kulkarni",
+    role: "Proprietor, Kulkarni Textile Mill, Hubballi",
+    initial: "P",
+    stars: 4,
+    date: "3 weeks ago",
+    product: "Fenner Poly-F B-Section V-Belts (Qty: 3)",
+    verified: true,
+  },
 ];
 
 const TICKER_ITEMS = [
@@ -135,20 +162,45 @@ export default function HomePage() {
       <section className="bg-[#072a6b]" aria-label="Trust strip">
         <div className="container-xl">
           <div className="flex flex-wrap items-stretch justify-center divide-x divide-white/10">
-            {[
-              { icon: "📍", label: "Hubballi, Gokul Road", sub: "Industrial Area, Plot #29" },
-              { icon: "📞", label: "9062186130", sub: "Click to call now" },
-              { icon: "🏷", label: "12 Trusted Brands", sub: "SKF · FAG · Fenner · Rolon" },
-              { icon: "⚡", label: "Same-Day Dispatch", sub: "Across North Karnataka" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 px-6 py-5 flex-1 min-w-[180px] justify-center group hover:bg-white/5 transition-colors cursor-default">
-                <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{item.icon}</span>
-                <div>
-                  <p className="text-white font-bold text-sm leading-tight">{item.label}</p>
-                  <p className="text-white/55 text-xs">{item.sub}</p>
-                </div>
+{/* Address */}
+            <div className="flex items-center gap-3 px-6 py-5 flex-1 min-w-[180px] justify-center group hover:bg-white/5 transition-colors cursor-default">
+              <span className="text-2xl group-hover:scale-125 transition-transform duration-300">📍</span>
+              <div>
+                <p className="text-white font-bold text-sm leading-tight">Hubballi, Gokul Road</p>
+                <p className="text-white/55 text-xs">Industrial Area, Plot #29</p>
               </div>
-            ))}
+            </div>
+
+            {/* Primary phone — real tel: link, works on mobile */}
+            <a
+              href="tel:+919062186130"
+              className="flex items-center gap-3 px-6 py-5 flex-1 min-w-[180px] justify-center group hover:bg-white/5 transition-colors"
+              aria-label="Call IBCC on 9062186130"
+            >
+              <span className="text-2xl group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">📞</span>
+              <div>
+                <p className="text-white font-bold text-sm leading-tight underline underline-offset-2 decoration-[#F2A900]/60">9062186130</p>
+                <p className="text-[#F2A900] text-xs font-semibold">Tap to Call Now</p>
+              </div>
+            </a>
+
+            {/* Brands */}
+            <div className="flex items-center gap-3 px-6 py-5 flex-1 min-w-[180px] justify-center group hover:bg-white/5 transition-colors cursor-default">
+              <span className="text-2xl group-hover:scale-125 transition-transform duration-300">🏷</span>
+              <div>
+                <p className="text-white font-bold text-sm leading-tight">12 Trusted Brands</p>
+                <p className="text-white/55 text-xs">SKF · FAG · Fenner · Rolon</p>
+              </div>
+            </div>
+
+            {/* Dispatch */}
+            <div className="flex items-center gap-3 px-6 py-5 flex-1 min-w-[180px] justify-center group hover:bg-white/5 transition-colors cursor-default">
+              <span className="text-2xl group-hover:scale-125 transition-transform duration-300">⚡</span>
+              <div>
+                <p className="text-white font-bold text-sm leading-tight">Same-Day Dispatch</p>
+                <p className="text-white/55 text-xs">Across North Karnataka</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -202,18 +254,17 @@ export default function HomePage() {
           <p className="text-slate-500 text-sm mt-2 max-w-xl mx-auto">Official stockist of the world's most trusted industrial brands</p>
         </ScrollReveal>
 
-        {/* Forward marquee */}
+        {/* Forward marquee — logo SVG already contains brand name, just show tagline below */}
         <div className="relative overflow-hidden mb-4">
-          <div className="flex gap-6 marquee-track items-center" style={{ width: "max-content" }}>
+          <div className="flex gap-5 marquee-track items-center" style={{ width: "max-content" }}>
             {[...BRANDS, ...BRANDS].map((brand, i) => (
-              <div key={`fwd-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-6 py-4 min-w-[140px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 group cursor-default">
+              <div key={`fwd-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-5 py-4 min-w-[120px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 group cursor-default">
                 <img
                   src={`/images/logos/${brand.name.toLowerCase()}.svg`}
                   alt={`${brand.name} logo`}
-                  className="h-10 object-contain mb-2"
+                  className="h-9 w-20 object-contain"
                 />
-                <span className="font-black text-sm leading-none" style={{ color: brand.color }}>{brand.name}</span>
-                <span className="text-slate-400 text-[10px] font-medium mt-0.5">{brand.tag}</span>
+                <span className="text-slate-400 text-[10px] font-medium mt-1.5 text-center leading-tight">{brand.tag}</span>
               </div>
             ))}
           </div>
@@ -221,16 +272,15 @@ export default function HomePage() {
 
         {/* Reverse marquee */}
         <div className="relative overflow-hidden">
-          <div className="flex gap-6 marquee-track-reverse items-center" style={{ width: "max-content" }}>
+          <div className="flex gap-5 marquee-track-reverse items-center" style={{ width: "max-content" }}>
             {[...BRANDS, ...BRANDS].reverse().map((brand, i) => (
-              <div key={`rev-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-6 py-4 min-w-[140px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 cursor-default">
+              <div key={`rev-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-5 py-4 min-w-[120px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 cursor-default">
                 <img
                   src={`/images/logos/${brand.name.toLowerCase()}.svg`}
                   alt={`${brand.name} logo`}
-                  className="h-10 object-contain mb-2"
+                  className="h-9 w-20 object-contain"
                 />
-                <span className="font-black text-sm leading-none" style={{ color: brand.color }}>{brand.name}</span>
-                <span className="text-slate-400 text-[10px] font-medium mt-0.5">{brand.tag}</span>
+                <span className="text-slate-400 text-[10px] font-medium mt-1.5 text-center leading-tight">{brand.tag}</span>
               </div>
             ))}
           </div>
@@ -374,37 +424,75 @@ export default function HomePage() {
       </section>
 
       {/* ── REVIEWS ─────────────────────────────────────────────────── */}
-      <section className="section-padding bg-white" aria-labelledby="reviews-heading">
+      <section className="section-padding bg-slate-50" aria-labelledby="reviews-heading">
         <div className="container-xl">
           <ScrollReveal className="text-center mb-14">
-            <div className="flex justify-center gap-1 mb-3">
-              {[1,2,3,4,5].map(i => <svg key={i} width="22" height="22" viewBox="0 0 24 24" fill="#F2A900"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+            {/* Google-style rating summary */}
+            <div className="inline-flex flex-col items-center bg-white rounded-2xl shadow-md border border-slate-100 px-8 py-5 mb-6">
+              <div className="flex items-center gap-3 mb-2">
+                <svg width="28" height="28" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                <span className="text-slate-600 text-sm font-semibold">Google Reviews</span>
+              </div>
+              <p className="text-4xl font-extrabold text-[#0B3D91] leading-none">4.8</p>
+              <div className="flex gap-0.5 my-1.5">
+                {[1,2,3,4,5].map(i => <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#F2A900"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+              </div>
+              <p className="text-slate-400 text-xs">Based on 47 Google reviews</p>
             </div>
             <p className="badge-amber mb-3">Customer Reviews</p>
-            <h2 id="reviews-heading" className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91]">Trusted by Industries</h2>
-            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">What our clients say about our service and genuine products.</p>
+            <h2 id="reviews-heading" className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91]">What Our Clients Say</h2>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">Real feedback from rice mills, stone crushers & factories across North Karnataka.</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {REVIEWS.map((review, i) => (
               <ScrollReveal key={i} delay={(i + 1) as 1|2|3}>
-                <div className="bg-slate-50 p-7 rounded-2xl border border-slate-100 flex flex-col hover:shadow-xl hover:border-[#F2A900]/40 hover:-translate-y-2 transition-all duration-500 h-full group">
-                  {/* Quote mark */}
-                  <div className="text-5xl text-[#F2A900]/20 font-black leading-none mb-2 group-hover:text-[#F2A900]/40 transition-colors">"</div>
-                  <div className="flex gap-0.5 mb-4">
-                    {[1,2,3,4,5].map(s => <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#F2A900"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
-                  </div>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-5 italic">{review.text}</p>
-                  <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0B3D91] to-[#1a52b3] text-white flex items-center justify-center font-bold text-sm shadow-md">{review.initial}</div>
-                    <div>
-                      <p className="font-bold text-slate-800 text-sm">{review.author}</p>
-                      <p className="text-xs text-slate-500">{review.role}</p>
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col hover:shadow-xl hover:border-[#F2A900]/40 hover:-translate-y-2 transition-all duration-500 h-full group">
+                  {/* Header: avatar + name + Google icon */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0B3D91] to-[#1a52b3] text-white flex items-center justify-center font-bold text-base shadow-md flex-shrink-0">
+                      {review.initial}
                     </div>
-                    <div className="ml-auto">
-                      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-bold text-slate-800 text-sm leading-tight truncate">{review.author}</p>
+                      <p className="text-xs text-slate-400 mt-0.5">{review.role}</p>
+                      <div className="flex items-center gap-2 mt-1.5">
+                        <div className="flex gap-0.5">
+                          {[1,2,3,4,5].map(s => (
+                            <svg key={s} width="12" height="12" viewBox="0 0 24 24" fill={s <= review.stars ? "#F2A900" : "#e2e8f0"}>
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                          ))}
+                        </div>
+                        <span className="text-slate-400 text-[10px]">{review.date}</span>
+                      </div>
                     </div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" className="flex-shrink-0 mt-0.5" aria-hidden>
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
                   </div>
+
+                  {/* Product badge */}
+                  {review.product && (
+                    <div className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 mb-3 self-start">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B3D91" strokeWidth="2.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                      <span className="text-[10px] font-semibold text-slate-600">{review.product}</span>
+                    </div>
+                  )}
+
+                  {/* Review text */}
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{review.text}</p>
+
+                  {/* Verified badge */}
+                  {review.verified && (
+                    <div className="flex items-center gap-1.5 mt-4 pt-4 border-t border-slate-50">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                      <span className="text-[11px] text-green-600 font-semibold">Verified Purchase</span>
+                    </div>
+                  )}
                 </div>
               </ScrollReveal>
             ))}
