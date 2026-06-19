@@ -6,6 +6,27 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { products, ALL_CATEGORIES, type ProductCategory } from "@/data/products";
 
+// Category icons map
+const CAT_ICONS: Record<string, string> = {
+  "All": "🗂️",
+  "Bearings": "⚙️",
+  "V-Belts": "〰️",
+  "Fenner Poly-F": "🔁",
+  "V-Pulley": "🔩",
+  "Roller Chain": "⛓️",
+  "Sprockets": "🦷",
+  "Chain Pulley Block": "🏗️",
+  "Conveyor Belts": "📦",
+  "Gearboxes": "🔧",
+  "Oil Seals & Couplings": "💧",
+  "Wire Rope & Slings": "🪢",
+  "Fasteners & Hardware": "🔨",
+  "Material Handling": "🚜",
+  "Rice Mill Spares": "🌾",
+  "Crusher Spares": "🪨",
+  "Feed Spares": "🌽",
+};
+
 export default function ProductsClient() {
   const searchParams = useSearchParams();
   const initialCategory = (searchParams.get("category") as ProductCategory) || "All";
@@ -14,6 +35,7 @@ export default function ProductsClient() {
     ALL_CATEGORIES.includes(initialCategory as ProductCategory) ? initialCategory : "All"
   );
   const [search, setSearch] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Sync URL param on mount
   useEffect(() => {
@@ -33,6 +55,11 @@ export default function ProductsClient() {
     return matchCat && matchSearch;
   });
 
+  const handleCategoryClick = (cat: ProductCategory | "All") => {
+    setActiveCategory(cat);
+    setSidebarOpen(false);
+  };
+
   return (
     <>
       {/* Page header */}
@@ -42,7 +69,7 @@ export default function ProductsClient() {
           <h1 className="text-white text-4xl sm:text-5xl font-extrabold mb-4">Our Products</h1>
           <p className="text-white/65 max-w-2xl mx-auto text-lg">
             Browse our complete range of industrial spare parts — all from genuine, authorised sources.
-            Can't find what you need? Call us — we stock more than what's listed here.
+            Can&apos;t find what you need? Call us — we stock more than what&apos;s listed here.
           </p>
 
           {/* Search bar */}
@@ -57,14 +84,9 @@ export default function ProductsClient() {
             />
             <svg
               className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" strokeWidth="2"
+              strokeLinecap="round" strokeLinejoin="round"
             >
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -73,152 +95,262 @@ export default function ProductsClient() {
         </div>
       </div>
 
-      <div className="container-xl py-10">
-        {/* Category tabs — horizontal scroll on mobile */}
-        <div className="mb-8 -mx-4 px-4 overflow-x-auto">
-          <div className="flex gap-2 pb-2" style={{ width: "max-content" }}>
-            <button
-              id="cat-tab-all"
-              onClick={() => setActiveCategory("All")}
-              className={`category-tab ${activeCategory === "All" ? "active" : ""}`}
-            >
-              All Products ({products.length})
-            </button>
-            {ALL_CATEGORIES.map((cat) => {
-              const count = products.filter((p) => p.category === cat).length;
-              return (
-                <button
-                  key={cat}
-                  id={`cat-tab-${cat.toLowerCase().replace(/\s+/g, "-")}`}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`category-tab ${activeCategory === cat ? "active" : ""}`}
-                >
-                  {cat} ({count})
-                </button>
-              );
-            })}
-          </div>
-        </div>
+      <div className="container-xl py-8">
+        {/* Mobile: filter toggle button */}
+        <div className="lg:hidden mb-4">
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-2 bg-[#072a6b] text-white font-bold px-5 py-2.5 rounded-lg text-sm w-full justify-between"
+          >
+            <span className="flex items-center gap-2">
+              <FilterIcon />
+              {activeCategory === "All" ? "All Categories" : activeCategory}
+            </span>
+            <span className="text-[#F2A900] text-xs font-medium">
+              {filtered.length} items
+            </span>
+          </button>
 
-        {/* Results info */}
-        <div className="flex items-center justify-between mb-6">
-          <p className="text-slate-500 text-sm">
-            Showing <span className="font-semibold text-slate-700">{filtered.length}</span>{" "}
-            {activeCategory !== "All" ? `results in ${activeCategory}` : "products"}
-            {search ? ` for "${search}"` : ""}
-          </p>
-          {search && (
-            <button
-              onClick={() => setSearch("")}
-              className="text-xs text-[#0B3D91] font-semibold hover:underline"
-            >
-              Clear search
-            </button>
+          {/* Mobile sidebar dropdown */}
+          {sidebarOpen && (
+            <div className="mt-2 bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden z-20 relative">
+              <SidebarContent
+                activeCategory={activeCategory}
+                onSelect={handleCategoryClick}
+              />
+            </div>
           )}
         </div>
 
-        {/* Product grid */}
-        {filtered.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-5xl mb-4">🔍</p>
-            <h2 className="text-xl font-bold text-slate-700 mb-2">No results found</h2>
-            <p className="text-slate-500 text-sm mb-6">
-              Try a different search term, or{" "}
-              <button
-                onClick={() => { setSearch(""); setActiveCategory("All"); }}
-                className="text-[#0B3D91] font-semibold underline"
-              >
-                browse all products
-              </button>
-            </p>
-            <a
-              href="https://wa.me/919062186130"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Request via WhatsApp
-            </a>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {filtered.map((product) => (
-              <div key={product.id} id={`product-${product.id}`} className="product-card">
-                {/* Image */}
-                <div className="relative overflow-hidden h-44">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="product-card-img"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  {product.brand && (
-                    <div className="absolute top-2 right-2">
-                      <span className="badge-amber">{product.brand}</span>
-                    </div>
-                  )}
-                  <div className="absolute top-2 left-2">
-                    <span className="badge-navy">{product.category}</span>
-                  </div>
-                </div>
+        {/* Desktop: sidebar + grid layout */}
+        <div className="flex gap-8 items-start">
 
-                {/* Info */}
-                <div className="p-4 flex flex-col flex-1">
-                  <h3 className="font-bold text-[#0B3D91] text-sm leading-snug mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-slate-500 text-xs leading-relaxed flex-1">
-                    {product.description}
-                  </p>
-
-                  {/* CTA */}
-                  <Link
-                    href={`/contact?product=${encodeURIComponent(product.name)}`}
-                    id={`enquire-${product.id}`}
-                    className="mt-4 flex items-center justify-center gap-2 btn-primary text-xs py-2.5 w-full text-center rounded-md"
-                  >
-                    <EnquireIcon />
-                    Enquire Now
-                  </Link>
-                </div>
+          {/* ── SIDEBAR (desktop only) ── */}
+          <aside className="hidden lg:block w-60 flex-shrink-0 sticky top-24">
+            <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+              <div className="bg-[#072a6b] px-4 py-3">
+                <p className="text-white font-bold text-xs uppercase tracking-widest">
+                  Filter by Category
+                </p>
               </div>
-            ))}
-          </div>
-        )}
+              <SidebarContent
+                activeCategory={activeCategory}
+                onSelect={handleCategoryClick}
+              />
+            </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 bg-[#072a6b] rounded-2xl p-8 text-center">
-          <h2 className="text-white text-2xl font-extrabold mb-2">
-            Can't find what you're looking for?
-          </h2>
-          <p className="text-white/65 mb-6 max-w-lg mx-auto">
-            We stock more than what's listed here. Call or WhatsApp us with your requirement and
-            we'll check availability immediately.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="tel:+919062186130"
-              id="products-call-btn"
-              className="btn-primary"
-            >
-              <PhoneIcon />
-              9062186130
-            </a>
-            <a
-              href="https://wa.me/919062186130"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="products-whatsapp-btn"
-              className="flex items-center gap-2 bg-[#25D366] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#1db954] transition-colors"
-            >
-              <WhatsAppIcon />
-              Send WhatsApp
-            </a>
+            {/* Quick contact card */}
+            <div className="mt-4 bg-gradient-to-br from-[#F2A900] to-[#e09800] rounded-2xl p-5 text-center shadow">
+              <p className="text-[#072a6b] font-extrabold text-sm mb-1">Can&apos;t find it?</p>
+              <p className="text-[#072a6b]/70 text-xs mb-3 leading-snug">
+                We stock more than what&apos;s listed. Call us!
+              </p>
+              <a
+                href="tel:+919062186130"
+                className="flex items-center justify-center gap-1.5 bg-[#072a6b] text-white font-bold text-xs px-4 py-2.5 rounded-lg hover:bg-[#0B3D91] transition-colors"
+              >
+                <PhoneIcon /> 9062186130
+              </a>
+            </div>
+          </aside>
+
+          {/* ── MAIN CONTENT ── */}
+          <div className="flex-1 min-w-0">
+            {/* Results info bar */}
+            <div className="flex items-center justify-between mb-5 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5">
+              <p className="text-slate-600 text-sm">
+                Showing{" "}
+                <span className="font-bold text-[#0B3D91]">{filtered.length}</span>{" "}
+                {activeCategory !== "All" ? (
+                  <>results in <span className="font-semibold text-slate-700">{activeCategory}</span></>
+                ) : (
+                  "products"
+                )}
+                {search ? <> for &ldquo;<span className="font-semibold">{search}</span>&rdquo;</> : ""}
+              </p>
+              {(search || activeCategory !== "All") && (
+                <button
+                  onClick={() => { setSearch(""); setActiveCategory("All"); }}
+                  className="text-xs text-[#0B3D91] font-semibold hover:underline flex items-center gap-1"
+                >
+                  ✕ Clear filters
+                </button>
+              )}
+            </div>
+
+            {/* Product grid */}
+            {filtered.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-5xl mb-4">🔍</p>
+                <h2 className="text-xl font-bold text-slate-700 mb-2">No results found</h2>
+                <p className="text-slate-500 text-sm mb-6">
+                  Try a different search term, or{" "}
+                  <button
+                    onClick={() => { setSearch(""); setActiveCategory("All"); }}
+                    className="text-[#0B3D91] font-semibold underline"
+                  >
+                    browse all products
+                  </button>
+                </p>
+                <a
+                  href="https://wa.me/919062186130"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Request via WhatsApp
+                </a>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {filtered.map((product) => (
+                  <div key={product.id} id={`product-${product.id}`} className="product-card group">
+                    {/* Image */}
+                    <div className="relative overflow-hidden h-44">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="product-card-img"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      {product.brand && (
+                        <div className="absolute top-2 right-2">
+                          <span className="badge-amber">{product.brand}</span>
+                        </div>
+                      )}
+                      <div className="absolute top-2 left-2">
+                        <span className="badge-navy">{product.category}</span>
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <div className="p-4 flex flex-col flex-1">
+                      <h3 className="font-bold text-[#0B3D91] text-sm leading-snug mb-2">
+                        {product.name}
+                      </h3>
+                      <p className="text-slate-500 text-xs leading-relaxed flex-1">
+                        {product.description}
+                      </p>
+
+                      {/* CTA */}
+                      <Link
+                        href={`/contact?product=${encodeURIComponent(product.name)}`}
+                        id={`enquire-${product.id}`}
+                        className="mt-4 flex items-center justify-center gap-2 btn-primary text-xs py-2.5 w-full text-center rounded-md"
+                      >
+                        <EnquireIcon />
+                        Enquire Now
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Bottom CTA */}
+            <div className="mt-12 bg-[#072a6b] rounded-2xl p-8 text-center">
+              <h2 className="text-white text-2xl font-extrabold mb-2">
+                Can&apos;t find what you&apos;re looking for?
+              </h2>
+              <p className="text-white/65 mb-6 max-w-lg mx-auto">
+                We stock more than what&apos;s listed here. Call or WhatsApp us with your requirement and
+                we&apos;ll check availability immediately.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <a href="tel:+919062186130" id="products-call-btn" className="btn-primary">
+                  <PhoneIcon /> 9062186130
+                </a>
+                <a
+                  href="https://wa.me/919062186130"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="products-whatsapp-btn"
+                  className="flex items-center gap-2 bg-[#25D366] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#1db954] transition-colors"
+                >
+                  <WhatsAppIcon />
+                  Send WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </>
+  );
+}
+
+// ── SIDEBAR CONTENT (shared between desktop & mobile) ──────────────────
+function SidebarContent({
+  activeCategory,
+  onSelect,
+}: {
+  activeCategory: ProductCategory | "All";
+  onSelect: (cat: ProductCategory | "All") => void;
+}) {
+  const allCount = products.length;
+
+  return (
+    <nav className="py-2">
+      {/* All Products */}
+      <button
+        id="cat-tab-all"
+        onClick={() => onSelect("All")}
+        className={`w-full flex items-center justify-between px-4 py-2.5 text-sm font-semibold transition-all duration-150 group
+          ${activeCategory === "All"
+            ? "bg-[#072a6b] text-white"
+            : "text-slate-700 hover:bg-slate-50 hover:text-[#0B3D91]"
+          }`}
+      >
+        <span className="flex items-center gap-2.5">
+          <span className="text-base">{CAT_ICONS["All"]}</span>
+          All Products
+        </span>
+        <span className={`text-xs font-bold px-2 py-0.5 rounded-full
+          ${activeCategory === "All" ? "bg-[#F2A900] text-[#072a6b]" : "bg-slate-100 text-slate-500 group-hover:bg-[#e8f0fe] group-hover:text-[#0B3D91]"}`}>
+          {allCount}
+        </span>
+      </button>
+
+      {/* Divider */}
+      <div className="mx-4 my-1 border-t border-slate-100" />
+
+      {/* Category list */}
+      {ALL_CATEGORIES.map((cat) => {
+        const count = products.filter((p) => p.category === cat).length;
+        const isActive = activeCategory === cat;
+        return (
+          <button
+            key={cat}
+            id={`cat-tab-${cat.toLowerCase().replace(/\s+/g, "-")}`}
+            onClick={() => onSelect(cat)}
+            className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-all duration-150 group
+              ${isActive
+                ? "bg-[#072a6b] text-white font-semibold"
+                : "text-slate-600 hover:bg-slate-50 hover:text-[#0B3D91] font-medium"
+              }`}
+          >
+            <span className="flex items-center gap-2.5">
+              <span className="text-base">{CAT_ICONS[cat] ?? "📦"}</span>
+              <span className="text-left leading-tight">{cat}</span>
+            </span>
+            <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0
+              ${isActive ? "bg-[#F2A900] text-[#072a6b]" : "bg-slate-100 text-slate-500 group-hover:bg-[#e8f0fe] group-hover:text-[#0B3D91]"}`}>
+              {count}
+            </span>
+          </button>
+        );
+      })}
+    </nav>
+  );
+}
+
+// ── ICONS ──────────────────────────────────────────────────────────────
+function FilterIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="4" y1="6" x2="20" y2="6" /><line x1="8" y1="12" x2="16" y2="12" /><line x1="11" y1="18" x2="13" y2="18" />
+    </svg>
   );
 }
 
