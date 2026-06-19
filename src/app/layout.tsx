@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "SKF bearings hubli",
     "V-belt supplier Karnataka",
     "roller chain sprockets hubballi",
-    "conveyor belt supplier north Karnataka",
+    "conveyor belt supplier Karnataka",
     "rice mill spare parts hubli",
     "Fenner Poly-F belts",
     "chain pulley block hubballi",
@@ -35,6 +35,14 @@ export const metadata: Metadata = {
     "IBCC hubballi",
     "bearing supplier gokul road",
     "bearing supplier hubli",
+    "industrial spare parts hubli",
+    "bearing supplier Karnataka",
+    "Fenner belt dealer Hubballi",
+    "SKF bearing dealer Hubballi",
+    "roller chain dealer Karnataka",
+    "rice mill spares Karnataka",
+    "stone crusher spares Hubballi",
+    "conveyor belt dealer hubli",
   ],
   openGraph: {
     type: "website",
@@ -42,8 +50,8 @@ export const metadata: Metadata = {
     siteName: "Industrial Bearing & Chain Centre",
     title: "Industrial Bearing & Chain Centre | Hubballi",
     description:
-      "Established 2016. Genuine industrial bearings, chains, belts & spare parts. Serving North Karnataka industries. Call: 9062186130.",
-    images: [{ url: "/images/hero-factory.png", width: 1200, height: 630 }],
+      "Established 2016. Genuine industrial bearings, chains, belts & spare parts. Serving Karnataka industries. Call: 9062186130.",
+    images: [{ url: "/images/plant home page.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -53,6 +61,9 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   authors: [{ name: "Industrial Bearing & Chain Centre" }],
+  alternates: {
+    canonical: "https://www.ibcc.in",
+  },
 };
 
 export default function RootLayout({
@@ -63,10 +74,79 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="theme-color" content="#0B3D91" />
+        <meta name="geo.region" content="IN-KA" />
+        <meta name="geo.placename" content="Hubballi" />
+        <meta name="geo.position" content="15.355334;75.1118741" />
+        <meta name="ICBM" content="15.355334, 75.1118741" />
+        {/* Local Business Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Industrial Bearing & Chain Centre",
+              "alternateName": "IBCC Hubballi",
+              "description": "Authorised stockist of SKF, FAG, NTN, Fenner, Rolon bearings, V-belts, roller chains, sprockets, conveyor belts and industrial spare parts in Hubballi, Karnataka.",
+              "url": "https://www.ibcc.in",
+              "telephone": ["+919062186130", "+919036843910"],
+              "email": "industrialbearing.hubli@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Plot #29, Industrial Area, 2nd Gate, Gokul Road",
+                "addressLocality": "Hubballi",
+                "addressRegion": "Karnataka",
+                "postalCode": "580030",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 15.355334,
+                "longitude": 75.1118741
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+                  "opens": "09:30",
+                  "closes": "19:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "Sunday",
+                  "opens": "10:00",
+                  "closes": "14:00"
+                }
+              ],
+              "priceRange": "₹₹",
+              "currenciesAccepted": "INR",
+              "paymentAccepted": "Cash, UPI, Bank Transfer",
+              "areaServed": "Karnataka",
+              "foundingDate": "2016",
+              "taxID": "29BRWPA5389N1ZO",
+              "sameAs": [
+                "https://maps.app.goo.gl/o3DX6i8Z5LVCr9Q9A"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Industrial Spare Parts",
+                "itemListElement": [
+                  {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "SKF Bearings"}},
+                  {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Fenner V-Belts"}},
+                  {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Rolon Roller Chains"}},
+                  {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Conveyor Belts"}},
+                  {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Rice Mill Spare Parts"}}
+                ]
+              }
+            })
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
         <SplashScreen />

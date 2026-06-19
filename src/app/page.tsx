@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Industrial Bearing & Chain Centre | Hubballi — Bearings, Chains & Belts",
   description:
-    "Your trusted source for genuine industrial bearings, V-belts, roller chains, sprockets & spare parts in Hubballi, North Karnataka. Established 2016. SKF, FAG, NTN, Fenner, Rolon brands.",
+    "Your trusted source for genuine industrial bearings, V-belts, roller chains, sprockets & spare parts in Hubballi, Karnataka. Established 2016. SKF, FAG, NTN, Fenner, Rolon brands.",
 };
 
 const CATEGORIES = [
@@ -93,7 +93,7 @@ export default function HomePage() {
     <div>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="hero-section" aria-label="Hero">
-        <Image src="/images/hero-factory.png" alt="Industrial factory conveyor belt system" fill priority className="object-cover" sizes="100vw" />
+        <Image src="/images/plant home page.png" alt="Industrial Bearing & Chain Centre facility" fill priority className="object-cover" sizes="100vw" />
         <div className="hero-overlay" />
 
         {/* Floating gradient orbs */}
@@ -114,7 +114,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-8 animate-fade-up delay-200">
-              Your trusted source for genuine industrial spare parts in North Karnataka. Serving rice mills, crushers, conveyors &amp; manufacturing units since 2016.
+              Your trusted source for genuine industrial spare parts in Karnataka. Serving rice mills, crushers, conveyors &amp; feed mills since 2016.
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-up delay-300">
@@ -198,9 +198,50 @@ export default function HomePage() {
               <span className="text-2xl group-hover:scale-125 transition-transform duration-300">⚡</span>
               <div>
                 <p className="text-white font-bold text-sm leading-tight">Same-Day Dispatch</p>
-                <p className="text-white/55 text-xs">Across North Karnataka</p>
+                <p className="text-white/55 text-xs">Across Karnataka</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BRANDS MARQUEE ──────────────────────────────────────────── */}
+      <section className="py-14 bg-slate-50 overflow-hidden border-y border-slate-200" aria-label="Brands we stock">
+        <ScrollReveal className="container-xl mb-10 text-center">
+          <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em] mb-1">Authorised Dealer / Stockist</p>
+          <h2 className="text-2xl font-extrabold text-[#0B3D91]">Brands We Stock</h2>
+          <p className="text-slate-500 text-sm mt-2 max-w-xl mx-auto">Official stockist of the world's most trusted industrial brands</p>
+        </ScrollReveal>
+
+        {/* Forward marquee — logo SVG already contains brand name, just show tagline below */}
+        <div className="relative overflow-hidden mb-4">
+          <div className="flex gap-5 marquee-track items-center" style={{ width: "max-content" }}>
+            {[...BRANDS, ...BRANDS].map((brand, i) => (
+              <div key={`fwd-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-5 py-4 min-w-[120px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 group cursor-default">
+                <img
+                  src={`/images/logos/${brand.name.toLowerCase()}.svg`}
+                  alt={`${brand.name} logo`}
+                  className="h-9 w-20 object-contain"
+                />
+                <span className="text-slate-400 text-[10px] font-medium mt-1.5 text-center leading-tight">{brand.tag}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Reverse marquee */}
+        <div className="relative overflow-hidden">
+          <div className="flex gap-5 marquee-track-reverse items-center" style={{ width: "max-content" }}>
+            {[...BRANDS, ...BRANDS].reverse().map((brand, i) => (
+              <div key={`rev-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-5 py-4 min-w-[120px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 cursor-default">
+                <img
+                  src={`/images/logos/${brand.name.toLowerCase()}.svg`}
+                  alt={`${brand.name} logo`}
+                  className="h-9 w-20 object-contain"
+                />
+                <span className="text-slate-400 text-[10px] font-medium mt-1.5 text-center leading-tight">{brand.tag}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -246,47 +287,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BRANDS MARQUEE ──────────────────────────────────────────── */}
-      <section className="py-14 bg-slate-50 overflow-hidden border-y border-slate-200" aria-label="Brands we stock">
-        <ScrollReveal className="container-xl mb-10 text-center">
-          <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em] mb-1">Authorised Dealer / Stockist</p>
-          <h2 className="text-2xl font-extrabold text-[#0B3D91]">Brands We Stock</h2>
-          <p className="text-slate-500 text-sm mt-2 max-w-xl mx-auto">Official stockist of the world's most trusted industrial brands</p>
-        </ScrollReveal>
-
-        {/* Forward marquee — logo SVG already contains brand name, just show tagline below */}
-        <div className="relative overflow-hidden mb-4">
-          <div className="flex gap-5 marquee-track items-center" style={{ width: "max-content" }}>
-            {[...BRANDS, ...BRANDS].map((brand, i) => (
-              <div key={`fwd-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-5 py-4 min-w-[120px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 group cursor-default">
-                <img
-                  src={`/images/logos/${brand.name.toLowerCase()}.svg`}
-                  alt={`${brand.name} logo`}
-                  className="h-9 w-20 object-contain"
-                />
-                <span className="text-slate-400 text-[10px] font-medium mt-1.5 text-center leading-tight">{brand.tag}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Reverse marquee */}
-        <div className="relative overflow-hidden">
-          <div className="flex gap-5 marquee-track-reverse items-center" style={{ width: "max-content" }}>
-            {[...BRANDS, ...BRANDS].reverse().map((brand, i) => (
-              <div key={`rev-${i}`} className="flex flex-col items-center justify-center bg-white rounded-xl border border-slate-100 shadow-sm px-5 py-4 min-w-[120px] hover:border-[#F2A900] hover:shadow-lg transition-all hover:-translate-y-1 duration-300 cursor-default">
-                <img
-                  src={`/images/logos/${brand.name.toLowerCase()}.svg`}
-                  alt={`${brand.name} logo`}
-                  className="h-9 w-20 object-contain"
-                />
-                <span className="text-slate-400 text-[10px] font-medium mt-1.5 text-center leading-tight">{brand.tag}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── WHY CHOOSE — GLASSMORPHISM ──────────────────────────────── */}
       <section
         className="section-padding relative overflow-hidden"
@@ -305,7 +305,7 @@ export default function HomePage() {
           <ScrollReveal className="text-center mb-14">
             <p className="badge-amber mb-3">Why Choose IBCC</p>
             <h2 id="why-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Why Industrial Buyers Trust Us</h2>
-            <p className="text-white/60 mt-4 max-w-2xl mx-auto">Building trust with rice mills, stone crushers & manufacturing units across North Karnataka since 2016.</p>
+            <p className="text-white/60 mt-4 max-w-2xl mx-auto">Building trust with rice mills, stone crushers & feed mills across Karnataka since 2016.</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -349,7 +349,7 @@ export default function HomePage() {
             {[
               { num: "01", title: "Tell Us The Part", desc: "Call or WhatsApp with the part number, bearing size, belt section, or machine model. A photo works too!", color: "#0B3D91", textColor: "white", emoji: "💬" },
               { num: "02", title: "We Confirm Stock", desc: "Our team instantly checks inventory and gives you a competitive price quote with genuine brand options.", color: "#F2A900", textColor: "#072a6b", emoji: "✅" },
-              { num: "03", title: "Same Day Dispatch", desc: "Confirm the order and we dispatch same day. Pickup from shop or delivery across North Karnataka.", color: "#25D366", textColor: "white", emoji: "🚚" },
+              { num: "03", title: "Same Day Dispatch", desc: "Confirm the order and we dispatch same day. Pickup from shop or delivery across Karnataka.", color: "#25D366", textColor: "white", emoji: "🚚" },
             ].map((step, i) => (
               <ScrollReveal key={step.num} delay={(i + 1) as 1|2|3} className="text-center relative z-10">
                 <div
@@ -390,10 +390,9 @@ export default function HomePage() {
                 {[
                   { icon: "🌾", label: "Rice Mills", count: "50+" },
                   { icon: "🪨", label: "Stone Crushers", count: "30+" },
-                  { icon: "🏭", label: "Manufacturing", count: "40+" },
                   { icon: "⚙️", label: "Conveyors", count: "25+" },
                   { icon: "🌽", label: "Feed Mills", count: "20+" },
-                  { icon: "🔧", label: "General Industry", count: "100+" },
+                  { icon: "🏗️", label: "Agro Industry", count: "60+" },
                 ].map((s) => (
                   <div key={s.label} className="flex flex-col gap-1 p-4 rounded-xl bg-white border border-slate-100 hover:border-[#F2A900] hover:bg-[#fffbf0] hover:shadow-lg transition-all hover:scale-105 duration-300 group cursor-default">
                     <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{s.icon}</span>
@@ -441,7 +440,7 @@ export default function HomePage() {
             </div>
             <p className="badge-amber mb-3">Customer Reviews</p>
             <h2 id="reviews-heading" className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91]">What Our Clients Say</h2>
-            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">Real feedback from rice mills, stone crushers & factories across North Karnataka.</p>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">Real feedback from rice mills, stone crushers & factories across Karnataka.</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

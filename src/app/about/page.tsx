@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About Us — Established 2016 | Industrial Bearing & Chain Centre",
   description:
-    "Learn about Industrial Bearing & Chain Centre — established in 2016 by Ajitkumar Jaiswal in Hubballi. Genuine bearings, chains & spare parts for industrial buyers across North Karnataka.",
+    "Learn about Industrial Bearing & Chain Centre — established in 2016 by Ajitkumar Jaiswal in Hubballi. Genuine bearings, chains & spare parts for industrial buyers across Karnataka.",
 };
 
 const BRANDS = [
@@ -139,13 +139,10 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row gap-14 items-center">
             {/* Image */}
             <div className="lg:w-1/2 relative">
-              {/* ★ PLACEHOLDER: Replace with your actual shop/office photo.
-                   Current: hero-factory.png (industrial facility).
-                   To update: add your photo to public/images/ and change src below. */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
                 <Image
-                  src="/images/hero-factory.png"
-                  alt="Industrial Bearing &amp; Chain Centre — Hubballi shop"
+                  src="/images/about us.jpeg"
+                  alt="Industrial Bearing &amp; Chain Centre — Hubballi"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -164,18 +161,18 @@ export default function AboutPage() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91] section-title mb-8">
                 Serving Industry Since 2016
               </h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed">
+              <div className="space-y-4 text-slate-600 leading-relaxed text-justify">
                 <p>
-                  <strong className="text-[#0B3D91]">Industrial Bearing & Chain Centre</strong> was established in 2016 with a clear purpose — to be a reliable, single-stop source for genuine industrial spare parts in Hubballi and across North Karnataka.
+                  <strong className="text-[#0B3D91]">Industrial Bearing & Chain Centre</strong> was established in 2016 with a clear purpose to be a reliable, single-stop source for genuine industrial spare parts in Hubballi and across Karnataka.
                 </p>
                 <p>
-                  Founded and managed by <strong className="text-[#0B3D91]">Ajitkumar Jaiswal</strong>, the business was built on a commitment to supplying only authentic products from trusted manufacturers — no counterfeits, no compromise on quality.
+                  Founded and managed by <strong className="text-[#0B3D91]">Ajitkumar Jaiswal</strong>, the business was built on a commitment to supplying only authentic products from trusted manufacturers. No counterfeits, no compromise on quality.
                 </p>
                 <p>
-                  Over the years, we've built long-term relationships with rice mill operators, stone crusher units, manufacturing plants, and conveyor system operators throughout Karnataka. Our team has hands-on experience in understanding exactly what each industry needs, helping customers select the right product every time.
+                  Over the years, we have built long-term relationships with rice mill operators, stone crusher units, and conveyor system operators throughout Karnataka. Our team has hands-on experience in understanding exactly what each industry needs, helping customers select the right product every time.
                 </p>
                 <p>
-                  We deal in bearings, V-belts, Fenner Poly-F belts, V-pulleys, roller chains, sprockets, chain pulley blocks, conveyor belts, rice mill spare parts, crusher spares, and feed spares — from globally trusted brands including SKF, FAG, NTN, Fenner, Rolon, Diamond, and more.
+                  We deal in bearings, V-belts, Fenner Poly-F belts, V-pulleys, roller chains, sprockets, chain pulley blocks, conveyor belts, rice mill spare parts, crusher spares, and feed spares. We source from globally trusted brands including SKF, FAG, NTN, Fenner, Rolon, Diamond, and more.
                 </p>
               </div>
 
@@ -336,7 +333,7 @@ export default function AboutPage() {
             Ready to place an order?
           </h2>
           <p className="text-[#072a6b]/70 mb-8 max-w-lg mx-auto">
-            Get in touch with us directly. We're available Mon–Sat, 9:30 AM to 7:00 PM.
+            Get in touch with us directly. We\'re available Mon–Sat, 9:30 AM to 7:00 PM.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" id="about-contact-btn" className="flex items-center gap-2 bg-[#072a6b] text-white font-bold px-7 py-3.5 rounded-lg hover:bg-[#0B3D91] transition-colors">

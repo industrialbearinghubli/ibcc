@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -13,8 +14,8 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-md bg-[#F2A900] flex items-center justify-center flex-shrink-0">
-                <span className="text-[#072a6b] font-black text-sm">IB</span>
+              <div className="w-10 h-10 rounded-md overflow-hidden flex-shrink-0 bg-white shadow">
+                <Image src="/images/logo cmp.png" alt="IBCC Logo" width={40} height={40} className="object-contain w-full h-full" />
               </div>
               <div>
                 <p className="text-white font-extrabold text-sm leading-tight">INDUSTRIAL BEARING</p>
@@ -22,7 +23,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              Established 2016. Trusted supplier of industrial bearings, chains, belts & spare parts in Hubballi, serving North Karnataka industries.
+              Established 2016. Trusted supplier of industrial bearings, chains, belts & spare parts in Hubballi, serving Karnataka industries.
             </p>
             <p className="text-slate-500 text-xs">
               GSTIN: <span className="text-slate-300 font-mono">29BRWPA5389N1ZO</span>
@@ -58,19 +59,19 @@ export default function Footer() {
             <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Products</h3>
             <ul className="space-y-2.5">
               {[
-                "Bearings (SKF, FAG, NTN, NBC)",
-                "V-Belts & Fenner Poly-F",
-                "Roller Chains & Sprockets",
-                "Conveyor Belts",
-                "Rice Mill Spare Parts",
-                "Crusher Spares",
-                "Chain Pulley Blocks",
-                "V-Pulleys & Feed Spares",
+                { label: "Bearings (SKF, FAG, NTN, NBC)", href: "/products?category=Bearings" },
+                { label: "V-Belts & Fenner Poly-F", href: "/products?category=V-Belts" },
+                { label: "Roller Chains & Sprockets", href: "/products?category=Roller+Chain" },
+                { label: "Conveyor Belts", href: "/products?category=Conveyor+Belts" },
+                { label: "Rice Mill Spare Parts", href: "/products?category=Rice+Mill+Spares" },
+                { label: "Crusher Spares", href: "/products?category=Crusher+Spares" },
+                { label: "Chain Pulley Blocks", href: "/products?category=Chain+Pulley+Block" },
+                { label: "V-Pulleys & Feed Spares", href: "/products?category=V-Pulley" },
               ].map((item) => (
-                <li key={item}>
-                  <Link href="/products" className="footer-link flex items-center gap-2">
+                <li key={item.label}>
+                  <Link href={item.href} className="footer-link flex items-center gap-2">
                     <span className="text-[#F2A900] text-xs">›</span>
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -109,7 +110,8 @@ export default function Footer() {
               <div className="flex gap-3 items-center">
                 <ClockIcon />
                 <span className="text-slate-400 text-sm">
-                  Mon – Sat: 9:30 AM – 7:00 PM
+                  Mon – Sat: 9:30 AM – 7:00 PM<br />
+                  Sun: 10:00 AM – 2:00 PM
                 </span>
               </div>
             </address>

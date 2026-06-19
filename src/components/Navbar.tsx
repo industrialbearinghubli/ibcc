@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -39,9 +40,9 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-[70px]">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group" id="nav-logo">
-              {/* Icon mark */}
-              <div className="w-11 h-11 rounded-md bg-[#F2A900] flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110 shadow-md">
-                <span className="text-[#072a6b] font-black text-base leading-none">IB</span>
+              {/* Company Logo */}
+              <div className="w-11 h-11 rounded-md overflow-hidden flex-shrink-0 transition-transform group-hover:scale-110 shadow-md bg-white">
+                <Image src="/images/logo cmp.png" alt="Industrial Bearing & Chain Centre Logo" width={44} height={44} className="object-contain w-full h-full" />
               </div>
               <div className="flex flex-col">
                 <span className="text-white font-extrabold text-base leading-tight tracking-tight hidden sm:block">

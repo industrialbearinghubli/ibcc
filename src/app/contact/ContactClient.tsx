@@ -159,6 +159,10 @@ export default function ContactClient() {
                       Monday – Saturday<br />
                       9:30 AM – 7:00 PM
                     </p>
+                    <p className="text-white/70 text-sm mt-1">
+                      Sunday<br />
+                      10:00 AM – 2:00 PM
+                    </p>
                     <p className="text-white/40 text-xs mt-1 italic">*Hours subject to confirmation</p>
                   </div>
                 </div>
