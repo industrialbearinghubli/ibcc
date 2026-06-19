@@ -172,7 +172,7 @@ export default function AboutPage() {
                   Over the years, we have built long-term relationships with rice mill operators, stone crusher units, and conveyor system operators throughout Karnataka. Our team has hands-on experience in understanding exactly what each industry needs, helping customers select the right product every time.
                 </p>
                 <p>
-                  We deal in bearings, V-belts, Fenner Poly-F belts, V-pulleys, roller chains, sprockets, chain pulley blocks, conveyor belts, rice mill spare parts, crusher spares, and feed spares. We source from globally trusted brands including SKF, FAG, NTN, Fenner, Rolon, Diamond, and more.
+                  We deal in bearings, V-belts, Fenner Poly-F belts, V-pulleys, Roller chains, Sprockets, Chain pulley blocks, Conveyor belts, Rice mill spare parts, Crusher spares, and feed spares. We source from globally trusted brands including SKF, FAG, NTN, Fenner, Rolon, Diamond, and more.
                 </p>
               </div>
 
