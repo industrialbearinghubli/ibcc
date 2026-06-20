@@ -37,6 +37,10 @@ const BRANDS = [
   { name: "Rolon", tag: "Roller Chains", color: "#00529B" },
   { name: "Diamond", tag: "Industrial Chains", color: "#1E3A5F" },
   { name: "Hero", tag: "Industrial Chains", color: "#003087" },
+  { name: "NBR", tag: "Industrial Spares", color: "#003F8A" },
+  { name: "FKRS", tag: "Industrial Spares", color: "#E30613" },
+  { name: "HKG", tag: "Industrial Spares", color: "#00823F" },
+  { name: "ROCKMAN", tag: "Industrial Spares", color: "#FF6600" },
 ];
 
 const REVIEWS = [

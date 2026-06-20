@@ -19,6 +19,10 @@ const BRANDS = [
   { name: "Diamond", tagline: "Industrial Chains", logo: "/images/logos/diamond.svg" },
   { name: "Hero", tagline: "Industrial Chains", logo: "/images/logos/hero.svg" },
   { name: "KEC Bearings", tagline: "Automotive Bearings", logo: "/images/logos/kec.svg" },
+  { name: "NBR", tagline: "Industrial Spares", logo: "/images/logos/nbr.svg" },
+  { name: "FKRS", tagline: "Industrial Spares", logo: "/images/logos/fkrs.svg" },
+  { name: "HKG", tagline: "Industrial Spares", logo: "/images/logos/hkg.svg" },
+  { name: "ROCKMAN", tagline: "Industrial Spares", logo: "/images/logos/rockman.svg" },
 ];
 
 const PRODUCT_RANGE = [
