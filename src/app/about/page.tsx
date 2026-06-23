@@ -144,7 +144,7 @@ export default function AboutPage() {
             <div className="lg:w-1/2 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
                 <Image
-                  src="/images/plant home page.png"
+                  src="/images/stone crusher.png"
                   alt="Industrial Bearing &amp; Chain Centre — Hubballi"
                   fill
                   className="object-cover"
