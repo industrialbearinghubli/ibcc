@@ -102,10 +102,10 @@ export const products: Product[] = [
   },
   {
     id: "prod-10",
-    name: "ECODRIVE Belt",
+    name: "Ecodrive Belt",
     category: "V-Belts",
     image: "/images/real image/ECODRIVE belt.webp",
-    description: "Premium quality ECODRIVE Belt for industrial applications."
+    description: "Premium quality Ecodrive Belt for industrial applications."
   },
   {
     id: "prod-11",
@@ -130,17 +130,17 @@ export const products: Product[] = [
   },
   {
     id: "prod-14",
-    name: "FENNER Gear Box",
+    name: "Fenner Gear Box",
     category: "Gearboxes",
     image: "/images/real image/Fenner Gear Box.jpg",
-    description: "Premium quality FENNER Gear Box for industrial applications."
+    description: "Premium quality Fenner Gear Box for industrial applications."
   },
   {
     id: "prod-15",
-    name: "FENNER Reduction Gear Boxes All Models",
+    name: "Fenner Reduction Gear Boxes All Models",
     category: "Gearboxes",
     image: "/images/real image/Fenner Reduction Gear Boxes All Models.webp",
-    description: "Premium quality FENNER Reduction Gear Boxes All Models for industrial applications."
+    description: "Premium quality Fenner Reduction Gear Boxes All Models for industrial applications."
   },
   {
     id: "prod-16",
@@ -263,17 +263,17 @@ export const products: Product[] = [
   },
   {
     id: "prod-33",
-    name: "Pinbush Coupling FENNER",
+    name: "Pinbush Coupling Fenner",
     category: "Oil Seals & Couplings",
     image: "/images/real image/PINBUSH COUPLING FENNER.png",
-    description: "Premium quality Pinbush Coupling FENNER for industrial applications."
+    description: "Premium quality Pinbush Coupling Fenner for industrial applications."
   },
   {
     id: "prod-34",
-    name: "PIX Belt",
+    name: "Pix Belt",
     category: "V-Belts",
     image: "/images/real image/PIX belt.jpeg",
-    description: "Premium quality PIX Belt for industrial applications."
+    description: "Premium quality Pix Belt for industrial applications."
   },
   {
     id: "prod-35",
@@ -284,10 +284,10 @@ export const products: Product[] = [
   },
   {
     id: "prod-36",
-    name: "POLY F FENNER V Belts",
+    name: "Poly F Fenner V Belts",
     category: "V-Belts",
     image: "/images/real image/POLY F FENNER V BELTS.jpg",
-    description: "Premium quality POLY F FENNER V Belts for industrial applications."
+    description: "Premium quality Poly F Fenner V Belts for industrial applications."
   },
   {
     id: "prod-37",

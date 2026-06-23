@@ -80,7 +80,7 @@ for (const file of allFiles) {
 
   const category = fileToCategoryMap[file] || "Fasteners & Hardware";
   let baseName = file.split('.')[0].replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
-  const acronyms = ["SKF", "FAG", "NTN", "NBC", "ARB", "SMSR", "TBD", "MS", "PIX", "V", "IBCC", "ECODRIVE", "POLY", "FENNER"];
+  const acronyms = ["SKF", "FAG", "NTN", "NBC", "ARB", "SMSR", "TBD", "MS", "IBCC"];
   
   const name = baseName.toLowerCase().split(' ').map(word => {
     const upper = word.toUpperCase();
