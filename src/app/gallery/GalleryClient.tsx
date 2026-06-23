@@ -30,7 +30,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: "g-vbelts",
-    src: "/images/real image/Fenner-Belts.jpg",
+    src: "/images/real image/POLY F FENNER V BELTS.jpg",
     title: "V-Belts & Fenner Poly-F",
     desc: "A, B, C, D section belts and Fenner Poly-F raw-edge belts",
     category: "V-Belts",
@@ -78,7 +78,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: "g-wire-rope",
-    src: "/images/real image/WIRE ROPE 1.webp",
+    src: "/images/real image/WIRE ROPE.webp",
     title: "Wire Rope & Slings",
     desc: "6×19 and 6×37 wire ropes, webbing slings for lifting",
     category: "Wire Rope",
@@ -86,7 +86,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: "g-oil-seals",
-    src: "/images/real image/OIL SEALS.jfif",
+    src: "/images/real image/OIL SEALS.jpg",
     title: "Oil Seals & Couplings",
     desc: "NBR/Viton rotary oil seals, jaw couplings & O-rings",
     category: "Oil Seals",
@@ -94,7 +94,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: "g-gearboxes",
-    src: "/images/real image/SMSR-TBD-Gearbox.jpg",
+    src: "/images/real image/Fenner Gear Box.jpg",
     title: "Gearboxes",
     desc: "Worm and helical gearboxes for industrial power transmission",
     category: "Gearboxes",
