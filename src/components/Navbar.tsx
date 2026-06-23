@@ -39,21 +39,9 @@ export default function Navbar() {
         <div className="container-xl">
           <div className="flex items-center justify-between h-[70px]">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" id="nav-logo">
-              {/* Company Logo */}
-              <div className="w-12 h-12 flex-shrink-0 transition-transform group-hover:scale-110">
-                <Image src="/images/logo-transparent.png" alt="Industrial Bearing & Chain Centre Logo" width={48} height={48} className="object-contain w-full h-full" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-extrabold text-base leading-tight tracking-tight hidden sm:block">
-                  INDUSTRIAL BEARING
-                </span>
-                <span className="text-[#F2A900] font-extrabold text-base leading-tight tracking-tight hidden sm:block">
-                  &amp; CHAIN CENTRE
-                </span>
-                <span className="text-white font-extrabold text-base leading-tight tracking-tight sm:hidden">
-                  IBCC
-                </span>
+            <Link href="/" className="flex items-center group" id="nav-logo">
+              <div className="h-10 sm:h-12 w-auto transition-transform group-hover:scale-105">
+                <Image src="/images/ibcc-logo.png" alt="Industrial Bearing & Chain Centre Logo" width={200} height={54} className="object-contain h-full w-auto" priority />
               </div>
             </Link>
 

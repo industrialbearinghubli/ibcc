@@ -12,13 +12,9 @@ export default function Footer() {
       <div className="container-xl pt-20 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 flex-shrink-0">
-                <Image src="/images/logo-transparent.png" alt="IBCC Logo" width={48} height={48} className="object-contain w-full h-full" />
-              </div>
-              <div>
-                <p className="text-white font-extrabold text-sm leading-tight">INDUSTRIAL BEARING</p>
-                <p className="text-[#F2A900] font-extrabold text-sm leading-tight">& CHAIN CENTRE</p>
+            <div className="flex items-center mb-6">
+              <div className="h-10 sm:h-12 w-auto">
+                <Image src="/images/ibcc-logo.png" alt="IBCC Logo" width={200} height={54} className="object-contain h-full w-auto" />
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
