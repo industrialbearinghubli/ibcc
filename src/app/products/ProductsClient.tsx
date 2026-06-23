@@ -12,18 +12,14 @@ const CAT_ICONS: Record<string, string> = {
   "Bearings": "⚙️",
   "V-Belts": "〰️",
   "V-Pulley": "🔩",
-  "Roller Chain": "⛓️",
-  "Sprockets": "🦷",
+  "Chains & Sprockets": "⛓️",
   "Chain Pulley Block": "🏗️",
   "Conveyor Belts": "📦",
   "Gearboxes": "🔧",
   "Oil Seals & Couplings": "💧",
-  "Wire Rope & Slings": "🪢",
   "Fasteners & Hardware": "🔨",
   "Material Handling": "🚜",
-  "Rice Mill Spares": "🌾",
   "Crusher Spares": "🪨",
-  "Feed Spares": "🌽",
 };
 
 export default function ProductsClient() {
