@@ -181,7 +181,7 @@ export default function ContactClient() {
                     <p className="font-bold text-sm">Business Hours</p>
                     <p className="text-white/70 text-sm mt-0.5">
                       Monday – Saturday<br />
-                      9:30 AM – 7:00 PM
+                      9:00 AM – 7:30 PM
                     </p>
                     <p className="text-white/70 text-sm mt-1">
                       Sunday<br />
