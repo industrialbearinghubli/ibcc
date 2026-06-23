@@ -145,6 +145,9 @@ export default function ContactClient() {
                     <a href="tel:+917349049883" id="contact-phone-1" className="text-white/70 text-sm block hover:text-[#F2A900] transition-colors mt-0.5">
                       7349049883 (Mobile)
                     </a>
+                    <a href="tel:+919036843910" id="contact-phone-alt" className="text-white/70 text-sm block hover:text-[#F2A900] transition-colors mt-0.5">
+                      9036843910 (Mobile)
+                    </a>
                     <a href="tel:+918147027162" id="contact-phone-2" className="text-white/70 text-sm block hover:text-[#F2A900] transition-colors">
                       81470 27162 (Mobile)
                     </a>
@@ -294,6 +297,14 @@ export default function ContactClient() {
                             placeholder="WhatsApp Number *"
                             maxLength={10}
                             className={`bg-transparent border-b ${errors.phone ? 'border-red-400' : 'border-green-300'} focus:border-green-600 outline-none text-sm py-1 placeholder:text-slate-500`}
+                          />
+                          <input
+                            name="email"
+                            type="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder="Your Email Address"
+                            className={`bg-transparent border-b ${errors.email ? 'border-red-400' : 'border-green-300'} focus:border-green-600 outline-none text-sm py-1 placeholder:text-slate-500`}
                           />
                           <input
                             name="product"
