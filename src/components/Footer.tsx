@@ -105,24 +105,30 @@ export default function Footer() {
               <div className="flex flex-col gap-3 mt-6">
                 <a
                   href="mailto:industrialbearing.hubli@gmail.com"
-                  className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 p-3 rounded-xl transition-colors w-full"
+                  className="flex items-center justify-between gap-3 bg-white/5 hover:bg-white/10 border border-white/10 p-3 rounded-xl transition-colors w-full group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <EmailIcon />
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B3D91] transition-colors">
+                      <EmailIcon />
+                    </div>
+                    <span className="text-white/90 text-sm font-medium truncate">industrialbearing.hubli@gmail.com</span>
                   </div>
-                  <span className="text-white/90 text-sm font-medium truncate">industrialbearing.hubli@gmail.com</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40 group-hover:text-white transition-colors flex-shrink-0 ml-2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
 
                 <a
                   href="https://www.instagram.com/industrialbearing.hubli?igsh=MW91aWtlZzdmczRyNA=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-3 rounded-xl transition-all hover:scale-[1.02] hover:shadow-lg w-full"
+                  className="flex items-center justify-between gap-3 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-3 rounded-xl transition-all hover:scale-[1.02] hover:shadow-lg w-full group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                    <InstagramIcon fill="white" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                      <InstagramIcon fill="white" />
+                    </div>
+                    <span className="text-white text-sm font-bold">Follow on Instagram</span>
                   </div>
-                  <span className="text-white text-sm font-bold">Follow on Instagram</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/70 group-hover:text-white transition-colors flex-shrink-0 ml-2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
               </div>
             </address>
@@ -196,12 +202,10 @@ function ClockIcon() {
   );
 }
 
-function InstagramIcon({ fill = "none" }: { fill?: string }) {
+function InstagramIcon({ fill = "currentColor" }: { fill?: string }) {
   return (
-    <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill={fill} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.113a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
     </svg>
   );
 }
