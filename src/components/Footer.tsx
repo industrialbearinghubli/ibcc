@@ -95,30 +95,34 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex gap-3 items-center">
-                <EmailIcon />
-                <a
-                  href="mailto:industrialbearing.hubli@gmail.com"
-                  className="footer-link text-sm break-all"
-                >
-                  industrialbearing.hubli@gmail.com
-                </a>
-              </div>
-              <div className="flex gap-3 items-center">
                 <ClockIcon />
                 <span className="text-slate-400 text-sm">
                   Mon – Sat: 9:00 AM – 7:30 PM<br />
                   Sun: 10:00 AM – 2:00 PM
                 </span>
               </div>
-              <div className="flex gap-3 items-start mt-4">
-                <InstagramIcon />
+
+              <div className="flex flex-col gap-3 mt-6">
+                <a
+                  href="mailto:industrialbearing.hubli@gmail.com"
+                  className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 p-3 rounded-xl transition-colors w-full"
+                >
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <EmailIcon />
+                  </div>
+                  <span className="text-white/90 text-sm font-medium truncate">industrialbearing.hubli@gmail.com</span>
+                </a>
+
                 <a
                   href="https://www.instagram.com/industrialbearing.hubli?igsh=MW91aWtlZzdmczRyNA=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-link text-sm"
+                  className="flex items-center gap-3 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-3 rounded-xl transition-all hover:scale-[1.02] hover:shadow-lg w-full"
                 >
-                  @industrialbearing.hubli
+                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <InstagramIcon fill="white" />
+                  </div>
+                  <span className="text-white text-sm font-bold">Follow on Instagram</span>
                 </a>
               </div>
             </address>
@@ -176,7 +180,7 @@ function MapPinIcon() {
 
 function EmailIcon() {
   return (
-    <svg className="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
@@ -192,9 +196,9 @@ function ClockIcon() {
   );
 }
 
-function InstagramIcon() {
+function InstagramIcon({ fill = "none" }: { fill?: string }) {
   return (
-    <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill={fill} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
