@@ -13,9 +13,10 @@ const CATEGORIES = [
   { id: "bearings", label: "Bearings", desc: "SKF, FAG, NTN, NBC, ARB — deep groove, spherical, taper, plumber block & pillow block", img: "/images/real image/skf-bearings-solutions.jpg", href: "/products?category=Bearings", badge: "BEARINGS", color: "#0B3D91" },
   { id: "vbelts", label: "V-Belts", desc: "A, B, C, D section & Fenner Poly-F raw-edge cogged belts for all industrial drives", img: "/images/real image/POLY F FENNER V BELTS.jpg", href: "/products?category=V-Belts", badge: "V-BELTS", color: "#E31E24" },
   { id: "chains-sprockets", label: "Chains & Sprockets", desc: "Rolon, Diamond, Hero roller chains & precision-machined sprockets in BS/ANSI sizes", img: "/images/real image/roller-chain-sprocket.jpg", href: "/products?category=Chains+%26+Sprockets", badge: "CHAINS & SPROCKETS", color: "#1E3A5F" },
-  { id: "conveyor-belts", label: "Conveyor Belts", desc: "EP-grade flat belts, chevron belts, idler rollers & conveyor accessories", img: "/images/real image/V- type Conveyor-Belt.webp", href: "/products?category=Conveyor+Belts", badge: "CONVEYOR BELTS", color: "#006633" },
+  { id: "conveyor-belts", label: "Conveyor Belts", desc: "EP-grade flat belts, chevron belts, idler rollers & conveyor accessories", img: "/images/real image/conveyer belt.jpg", href: "/products?category=Conveyor+Belts", badge: "CONVEYOR BELTS", color: "#006633" },
   { id: "material-handling", label: "Material Handling", desc: "Trolley wheels, metal and plastic elevator buckets for all material handling needs", img: "/images/real image/plastic-elevator-buckets.webp", href: "/products?category=Material+Handling", badge: "MATERIAL HANDLING", color: "#C8A000" },
   { id: "crusher", label: "Crusher Spares", desc: "Jaw plates, toggle plates, bearing sets & V-belt kits for stone crushers", img: "/images/real image/impact-idlers stone crushers.jpg", href: "/products?category=Crusher+Spares", badge: "CRUSHER SPARES", color: "#7B3F00" },
+  { id: "rice-mill", label: "Rice Mill Spares", desc: "Elevator belts, metal/plastic buckets, and specialized parts for rice mills", img: "/images/real image/rice-mill-elevator-belt.jpeg", href: "/products?category=Rice+Mill+Spares", badge: "RICE MILL SPARES", color: "#F2A900" },
 ];
 
 const WHY_CHOOSE = [
@@ -262,9 +263,9 @@ export default function HomePage() {
             {CATEGORIES.map((cat, i) => (
               <ScrollReveal key={cat.id} delay={(i % 3 + 1) as 1|2|3|4|5}>
                 <Link href={cat.href} id={`cat-card-${cat.id}`} className="product-card group block h-full">
-                  <div className="relative overflow-hidden h-52">
-                    <Image src={cat.img} alt={cat.label} fill className="object-cover group-hover:scale-110 transition-transform duration-700" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="relative overflow-hidden h-52 bg-white">
+                    <Image src={cat.img} alt={cat.label} fill className="object-contain p-4 group-hover:scale-110 transition-transform duration-700" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                     {/* Color accent line on hover */}
                     <div className="absolute bottom-0 left-0 right-0 h-1 transition-all duration-500" style={{ backgroundColor: cat.color, opacity: 0 }} />
                     <div className="absolute bottom-3 left-3">

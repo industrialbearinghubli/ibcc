@@ -146,10 +146,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased pb-16 md:pb-0">
         <SplashScreen />
         <Navbar />
-        <main className="pb-16 md:pb-0">{children}</main>
+        <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
         <MobileStickyFooter />

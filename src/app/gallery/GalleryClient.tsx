@@ -118,49 +118,47 @@ export default function GalleryClient() {
         </div>
       </div>
 
-      <div className="container-xl py-8">
-
-      <div className="container-xl py-8">
-        {/* Gallery grid — masonry columns */}
-        <div className="flex-1 min-w-0">
-
-            {/* Gallery grid — masonry columns */}
-            <div className="columns-1 sm:columns-2 xl:columns-3 gap-4 space-y-4">
-              {GALLERY_ITEMS.map((item) => (
-                <div
-                  key={item.id}
-                  id={item.id}
-                  className="gallery-item break-inside-avoid"
-                  onClick={() => setLightboxItem(item)}
-                  role="button"
-                  aria-label={`View ${item.title}`}
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && setLightboxItem(item)}
-                >
-                  <div className="relative">
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      width={600}
-                      height={450}
-                      className="w-full h-auto rounded-lg"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                  {/* Hover overlay icon */}
-                  <div className="gallery-overlay-icon">
-                    <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-xl">
-                      <ZoomIcon />
-                    </div>
-                  </div>
-                  {/* Caption on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 z-10 px-3 pb-3 opacity-0 gallery-item-caption translate-y-2 transition-all duration-300">
-                    <p className="text-white font-bold text-sm leading-tight drop-shadow-lg">{item.title}</p>
-                    <p className="text-white/70 text-xs mt-0.5 drop-shadow-lg">{item.desc}</p>
-                  </div>
+      <div className="container-xl py-8 sm:py-12">
+        {/* Gallery grid — modern CSS grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
+          {GALLERY_ITEMS.map((item) => (
+            <div
+              key={item.id}
+              id={item.id}
+              className="gallery-item group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl border border-slate-200 transition-all duration-300 aspect-square cursor-pointer"
+              onClick={() => setLightboxItem(item)}
+              role="button"
+              aria-label={`View ${item.title}`}
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && setLightboxItem(item)}
+            >
+              <div className="absolute inset-0 bg-white">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-contain p-3 sm:p-5 group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                />
+              </div>
+              {/* Gradient overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              
+              {/* Hover overlay icon */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100 pointer-events-none">
+                <div className="bg-[#F2A900] rounded-full w-10 h-10 flex items-center justify-center shadow-2xl">
+                  <ZoomIcon />
                 </div>
-              ))}
+              </div>
+              
+              {/* Caption on hover */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 px-3 pb-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+                <p className="text-white font-extrabold text-xs sm:text-sm leading-tight drop-shadow-md truncate">{item.title}</p>
+                <p className="text-white/80 text-[10px] sm:text-xs mt-0.5 drop-shadow-md line-clamp-1">{item.desc}</p>
+              </div>
             </div>
+          ))}
+        </div>
 
             {/* Bottom CTA */}
             <div className="mt-12 text-center">
@@ -184,8 +182,6 @@ export default function GalleryClient() {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
       </div>
 
       {/* Lightbox */}

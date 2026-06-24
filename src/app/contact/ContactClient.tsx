@@ -405,7 +405,7 @@ export default function ContactClient() {
             </div>
 
             {/* Mobile-first action strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 bg-slate-50">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-slate-100 bg-slate-50">
               <a
                 href="https://maps.app.goo.gl/o3DX6i8Z5LVCr9Q9A"
                 target="_blank"
@@ -420,7 +420,7 @@ export default function ContactClient() {
                 </span>
                 <div>
                   <p className="font-bold text-[#0B3D91] text-sm">Open in Maps</p>
-                  <p className="text-slate-500 text-xs">View on Google Maps</p>
+                  <p className="text-slate-500 text-xs hidden sm:block">View on Google Maps</p>
                 </div>
               </a>
               <a
@@ -434,7 +434,7 @@ export default function ContactClient() {
                 </span>
                 <div>
                   <p className="font-bold text-[#0B3D91] text-sm">Call Now</p>
-                  <p className="text-slate-500 text-xs">7349049883</p>
+                  <p className="text-slate-500 text-xs hidden sm:block">7349049883</p>
                 </div>
               </a>
               <a
@@ -450,7 +450,22 @@ export default function ContactClient() {
                 </span>
                 <div>
                   <p className="font-bold text-[#0B3D91] text-sm">WhatsApp</p>
-                  <p className="text-slate-500 text-xs">Chat for directions</p>
+                  <p className="text-slate-500 text-xs hidden sm:block">Chat for directions</p>
+                </div>
+              </a>
+              <a
+                href="mailto:industrialbearing.hubli@gmail.com"
+                className="flex items-center gap-3 px-5 py-4 hover:bg-slate-100 transition-colors group"
+              >
+                <span className="w-9 h-9 rounded-lg bg-[#072a6b] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B3D91] transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="font-bold text-[#0B3D91] text-sm">Mail Us</p>
+                  <p className="text-slate-500 text-xs hidden sm:block">Send Enquiry</p>
                 </div>
               </a>
             </div>
