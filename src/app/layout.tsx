@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://industrialbearingcentre.in"),
+  metadataBase: new URL("https://industrialbearingchaincentre.in"),
   title: {
     default: "Industrial Bearing & Chain Centre | Bearings, Chains & Belts — Hubballi",
     template: "%s | Industrial Bearing & Chain Centre",
@@ -92,7 +92,7 @@ export default function RootLayout({
               "name": "Industrial Bearing & Chain Centre",
               "alternateName": "IBCC Hubballi",
               "description": "Authorised stockist of SKF, FAG, NTN, Fenner, Rolon bearings, V-belts, roller chains, sprockets, conveyor belts and industrial spare parts in Hubballi, Karnataka.",
-              "url": "https://www.ibcc.in",
+              "url": "https://www.industrialbearingchaincentre.in",
               "telephone": ["+917349049883", "+918147027162"],
               "email": "industrialbearing.hubli@gmail.com",
               "address": {
