@@ -141,8 +141,8 @@ export default function AboutPage() {
         <div className="container-xl">
           <div className="flex flex-col lg:flex-row gap-14 items-center">
             {/* Image */}
-            <div className="lg:w-1/2 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
+            <div className="w-full lg:w-1/2 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ minHeight: '260px', aspectRatio: '16/9' }}>
                 <Image
                   src="/images/about us finaal.png"
                   alt="Industrial Bearing &amp; Chain Centre — Hubballi"

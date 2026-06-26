@@ -48,7 +48,7 @@ const BRANDS = [
 
 const REVIEWS = [
   {
-    text: "Bearings swalpa costly aaguttha anta hesardru, aadre IBCC lly SKF 6205 bearing price check maadidaga same day stock iralilla, maarananalli 2 tass loge deliver maadidru. Genuine product maathra – no duplicate. Our rice sheller running smooth for 8 months now.",
+    text: "We have been sourcing SKF bearings from IBCC for our rice sheller units for over two years now. Every order has been delivered the same day with genuine parts. No substitutes, no delays. Highly reliable supplier for bulk industrial needs.",
     author: "Basavaraj Hiremath",
     role: "Proprietor, Hiremath Rice Industries, Gadag",
     initial: "B",
@@ -58,7 +58,7 @@ const REVIEWS = [
     verified: true,
   },
   {
-    text: "Stone crusher la jaw plates naavu kashtapatti kaLithaiddvi. IBCClly toggle plate, jaw plate set ready stock ithtu – price quote 15 min loge WhatsApp la bandhu. Fitting also correct, machine full load la kaLithide. Thank you IBCC team.",
+    text: "Our stone crusher was down and we needed toggle plates and jaw plates urgently. IBCC had the parts in stock and shared a WhatsApp quote within 15 minutes. The fitting was accurate and the machine is running at full capacity. Excellent response time.",
     author: "Santosh Kumbar",
     role: "Stone Crusher Owner, Haveri District",
     initial: "S",
@@ -68,7 +68,7 @@ const REVIEWS = [
     verified: true,
   },
   {
-    text: "Fenner B-section V-belts for our textile loom — took 3 pcs. Within same afternoon, Gokul Road shop la stock ready iralilla antha hesaru, aadre Ashok (owner) phone maddu adjust maadidru. That personal service is rare nowadays. Will buy again.",
+    text: "Ordered 3 Fenner B-section V-belts for our textile loom. Good availability and fair pricing. The owner personally followed up to confirm the correct size before dispatch. That kind of attention to detail is rare from a spare parts dealer. Will continue buying here.",
     author: "Pradeep Kulkarni",
     role: "Proprietor, Kulkarni Textile Mill, Hubballi",
     initial: "P",

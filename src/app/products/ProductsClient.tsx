@@ -5,22 +5,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { products, ALL_CATEGORIES, type ProductCategory } from "@/data/products";
+import {
+  LayoutGrid, Settings2, Cable, CircleDot, Link2, Blocks,
+  MoveRight, Cog, Droplets, Wrench, PackageOpen, Wheat, Mountain
+} from "lucide-react";
 
-// Category icons map
-const CAT_ICONS: Record<string, string> = {
-  "All": "🗂️",
-  "Bearings": "⚙️",
-  "V-Belts": "〰️",
-  "V-Pulley": "🔩",
-  "Chains & Sprockets": "⛓️",
-  "Chain Pulley Block": "🏗️",
-  "Conveyor Belts": "📦",
-  "Gearboxes": "🔧",
-  "Oil Seals & Couplings": "💧",
-  "Fasteners & Hardware": "🔨",
-  "Material Handling": "🚜",
-  "Rice Mill Spares": "🌾",
-  "Crusher Spares": "🪨",
+// Category icons map — professional Lucide icons
+const CAT_ICON_COMPONENTS: Record<string, React.ReactNode> = {
+  "All":                  <LayoutGrid  size={15} strokeWidth={2} />,
+  "Bearings":             <Settings2   size={15} strokeWidth={2} />,
+  "V-Belts":             <Cable       size={15} strokeWidth={2} />,
+  "V-Pulley":            <CircleDot   size={15} strokeWidth={2} />,
+  "Chains & Sprockets":  <Link2       size={15} strokeWidth={2} />,
+  "Chain Pulley Block":  <Blocks      size={15} strokeWidth={2} />,
+  "Conveyor Belts":      <MoveRight   size={15} strokeWidth={2} />,
+  "Gearboxes":           <Cog         size={15} strokeWidth={2} />,
+  "Oil Seals & Couplings": <Droplets  size={15} strokeWidth={2} />,
+  "Fasteners & Hardware": <Wrench     size={15} strokeWidth={2} />,
+  "Material Handling":   <PackageOpen size={15} strokeWidth={2} />,
+  "Rice Mill Spares":    <Wheat       size={15} strokeWidth={2} />,
+  "Crusher Spares":      <Mountain    size={15} strokeWidth={2} />,
 };
 
 export default function ProductsClient() {
@@ -300,7 +304,7 @@ function SidebarContent({
           }`}
       >
         <span className="flex items-center gap-2.5">
-          <span className="text-base">{CAT_ICONS["All"]}</span>
+          <span className="flex-shrink-0">{CAT_ICON_COMPONENTS["All"]}</span>
           All Products
         </span>
         <span className={`text-xs font-bold px-2 py-0.5 rounded-full
@@ -328,7 +332,7 @@ function SidebarContent({
               }`}
           >
             <span className="flex items-center gap-2.5">
-              <span className="text-base">{CAT_ICONS[cat] ?? "📦"}</span>
+              <span className="flex-shrink-0">{CAT_ICON_COMPONENTS[cat] ?? <Cog size={15} strokeWidth={2} />}</span>
               <span className="text-left leading-tight">{cat}</span>
             </span>
             <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0
