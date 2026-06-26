@@ -6,7 +6,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
   ? `https://${process.env.NEXT_PUBLIC_SITE_URL}`
   : process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://ibcc.vercel.app"; // fallback — replace with actual Vercel URL if different
+  : "https://ibcc-sigma.vercel.app"; // fallback — replace with actual Vercel URL if different
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
