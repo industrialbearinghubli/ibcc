@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.ibcc.in/sitemap.xml
+Sitemap: https://www.industrialbearingchaincentre.in/sitemap.xml
