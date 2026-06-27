@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { products, ALL_CATEGORIES, type ProductCategory } from "@/data/products";
+import { useRouter } from "next/navigation";
+import { products, ALL_CATEGORIES, getCategoryFromSlug, getCategorySlug, type ProductCategory } from "@/data/products";
 import {
   LayoutGrid, Settings2, Cable, CircleDot, Link2, Blocks,
   MoveRight, Cog, Droplets, Wrench, PackageOpen, Wheat, Mountain
@@ -27,23 +27,19 @@ const CAT_ICON_COMPONENTS: Record<string, React.ReactNode> = {
   "Crusher Spares":      <Mountain    size={15} strokeWidth={2} />,
 };
 
-export default function ProductsClient() {
-  const searchParams = useSearchParams();
-  const initialCategory = (searchParams.get("category") as ProductCategory) || "All";
-
-  const [activeCategory, setActiveCategory] = useState<ProductCategory | "All">(
-    ALL_CATEGORIES.includes(initialCategory as ProductCategory) ? initialCategory : "All"
-  );
+export default function ProductsClient({ initialCategorySlug = "all" }: { initialCategorySlug?: string }) {
+  const router = useRouter();
+  
+  const initialCat = getCategoryFromSlug(initialCategorySlug) || "All";
+  
+  const [activeCategory, setActiveCategory] = useState<ProductCategory | "All">(initialCat);
   const [search, setSearch] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Sync URL param on mount
+  // Sync state if prop changes (via Next.js soft navigation)
   useEffect(() => {
-    const cat = searchParams.get("category") as ProductCategory;
-    if (cat && ALL_CATEGORIES.includes(cat)) {
-      setActiveCategory(cat);
-    }
-  }, [searchParams]);
+    setActiveCategory(getCategoryFromSlug(initialCategorySlug) || "All");
+  }, [initialCategorySlug]);
 
   const filtered = products.filter((p) => {
     const matchCat = activeCategory === "All" || p.category === activeCategory;
@@ -57,8 +53,13 @@ export default function ProductsClient() {
   });
 
   const handleCategoryClick = (cat: ProductCategory | "All") => {
-    setActiveCategory(cat);
     setSidebarOpen(false);
+    const slug = getCategorySlug(cat);
+    if (slug === "all") {
+      router.push("/products");
+    } else {
+      router.push(`/products/${slug}`);
+    }
   };
 
   return (

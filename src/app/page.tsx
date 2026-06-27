@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES = [
-  { id: "bearings", label: "Bearings", desc: "SKF, FAG, NTN, NBC, ARB — deep groove, spherical, taper, plumber block & pillow block", img: "/images/real image/skf-bearings-solutions.jpg", href: "/products?category=Bearings", badge: "BEARINGS", color: "#0B3D91" },
-  { id: "vbelts", label: "V-Belts", desc: "A, B, C, D section & Fenner Poly-F raw-edge cogged belts for all industrial drives", img: "/images/real image/POLY F FENNER V BELTS.jpg", href: "/products?category=V-Belts", badge: "V-BELTS", color: "#E31E24" },
-  { id: "chains-sprockets", label: "Chains & Sprockets", desc: "Rolon, Diamond, Hero roller chains & precision-machined sprockets in BS/ANSI sizes", img: "/images/real image/roller-chain-sprocket.jpg", href: "/products?category=Chains+%26+Sprockets", badge: "CHAINS & SPROCKETS", color: "#1E3A5F" },
-  { id: "conveyor-belts", label: "Conveyor Belts", desc: "EP-grade flat belts, chevron belts, idler rollers & conveyor accessories", img: "/images/real image/conveyer belt.jpg", href: "/products?category=Conveyor+Belts", badge: "CONVEYOR BELTS", color: "#006633" },
-  { id: "material-handling", label: "Material Handling", desc: "Trolley wheels, D-shackles, wire ropes, and flat slings for all material handling needs", img: "/images/real image/TROLLEY WHEELS.webp", href: "/products?category=Material+Handling", badge: "MATERIAL HANDLING", color: "#C8A000" },
-  { id: "crusher", label: "Crusher Spares", desc: "Jaw plates, toggle plates, bearing sets & V-belt kits for stone crushers", img: "/images/real image/impact-idlers stone crushers.jpg", href: "/products?category=Crusher+Spares", badge: "CRUSHER SPARES", color: "#7B3F00" },
-  { id: "rice-mill", label: "Rice Mill Spares", desc: "Elevator belts, metal/plastic buckets, and specialized parts for rice mills", img: "/images/real image/rice-mill-elevator-belt.jpeg", href: "/products?category=Rice+Mill+Spares", badge: "RICE MILL SPARES", color: "#F2A900" },
+  { id: "bearings", label: "Bearings", desc: "SKF, FAG, NTN, NBC, ARB — deep groove, spherical, taper, plumber block & pillow block", img: "/images/real image/skf-bearings-solutions.jpg", href: "/products/bearings", badge: "BEARINGS", color: "#0B3D91" },
+  { id: "vbelts", label: "V-Belts", desc: "A, B, C, D section & Fenner Poly-F raw-edge cogged belts for all industrial drives", img: "/images/real image/POLY F FENNER V BELTS.jpg", href: "/products/v-belts", badge: "V-BELTS", color: "#E31E24" },
+  { id: "chains-sprockets", label: "Chains & Sprockets", desc: "Rolon, Diamond, Hero roller chains & precision-machined sprockets in BS/ANSI sizes", img: "/images/real image/roller-chain-sprocket.jpg", href: "/products/chains-sprockets", badge: "CHAINS & SPROCKETS", color: "#1E3A5F" },
+  { id: "conveyor-belts", label: "Conveyor Belts", desc: "EP-grade flat belts, chevron belts, idler rollers & conveyor accessories", img: "/images/real image/conveyer belt.jpg", href: "/products/conveyor-belts", badge: "CONVEYOR BELTS", color: "#006633" },
+  { id: "material-handling", label: "Material Handling", desc: "Trolley wheels, D-shackles, wire ropes, and flat slings for all material handling needs", img: "/images/real image/TROLLEY WHEELS.webp", href: "/products/material-handling", badge: "MATERIAL HANDLING", color: "#C8A000" },
+  { id: "crusher", label: "Crusher Spares", desc: "Jaw plates, toggle plates, bearing sets & V-belt kits for stone crushers", img: "/images/real image/impact-idlers stone crushers.jpg", href: "/products/crusher-spares", badge: "CRUSHER SPARES", color: "#7B3F00" },
+  { id: "rice-mill", label: "Rice Mill Spares", desc: "Elevator belts, metal/plastic buckets, and specialized parts for rice mills", img: "/images/real image/rice-mill-elevator-belt.jpeg", href: "/products/rice-mill-spares", badge: "RICE MILL SPARES", color: "#F2A900" },
 ];
 
 const WHY_CHOOSE = [

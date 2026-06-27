@@ -87,14 +87,14 @@ export default function Footer() {
             <h3 className="text-white font-bold text-xs uppercase tracking-widest mb-5 opacity-60">Products</h3>
             <ul className="space-y-2.5">
               {[
-                { label: "Bearings (SKF, FAG, NTN, NBC)", href: "/products?category=Bearings" },
-                { label: "V-Belts & Fenner Poly-F", href: "/products?category=V-Belts" },
-                { label: "Roller Chains & Sprockets", href: "/products?category=Chains+%26+Sprockets" },
-                { label: "Conveyor Belts", href: "/products?category=Conveyor+Belts" },
-                { label: "Rice Mill Spare Parts", href: "/products?category=Rice+Mill+Spares" },
-                { label: "Crusher Spares", href: "/products?category=Crusher+Spares" },
-                { label: "Chain Pulley Blocks", href: "/products?category=Chain+Pulley+Block" },
-                { label: "V-Pulleys & Feed Spares", href: "/products?category=V-Pulley" },
+                { label: "Bearings (SKF, FAG, NTN, NBC)", href: "/products/bearings" },
+                { label: "V-Belts & Fenner Poly-F", href: "/products/v-belts" },
+                { label: "Roller Chains & Sprockets", href: "/products/chains-sprockets" },
+                { label: "Conveyor Belts", href: "/products/conveyor-belts" },
+                { label: "Rice Mill Spare Parts", href: "/products/rice-mill-spares" },
+                { label: "Crusher Spares", href: "/products/crusher-spares" },
+                { label: "Chain Pulley Blocks", href: "/products/chain-pulley-block" },
+                { label: "V-Pulleys & Feed Spares", href: "/products/v-pulley" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="footer-link flex items-center gap-2 text-sm">

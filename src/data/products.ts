@@ -36,6 +36,17 @@ export const ALL_CATEGORIES: ProductCategory[] = [
   "Crusher Spares",
 ];
 
+export function getCategorySlug(cat: string): string {
+  if (cat === "All") return "all";
+  return cat.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");
+}
+
+export function getCategoryFromSlug(slug: string): ProductCategory | "All" | null {
+  if (slug === "all" || !slug) return "All";
+  const cat = ALL_CATEGORIES.find((c) => getCategorySlug(c) === slug);
+  return cat || null;
+}
+
 export const products: Product[] = [
   {
     id: "prod-1",
