@@ -12,8 +12,9 @@ export function generateStaticParams() {
 }
 
 // Generate specific SEO metadata for each category page
-export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
-  const categoryName = getCategoryFromSlug(params.category);
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const categoryName = getCategoryFromSlug(resolvedParams.category);
   
   if (!categoryName || categoryName === "All") {
     return {
@@ -27,8 +28,9 @@ export async function generateMetadata({ params }: { params: { category: string 
   };
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryName = getCategoryFromSlug(params.category);
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const resolvedParams = await params;
+  const categoryName = getCategoryFromSlug(resolvedParams.category);
   
   if (!categoryName || categoryName === "All") {
     notFound();
@@ -36,7 +38,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
 
   return (
     <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
-      <ProductsClient initialCategorySlug={params.category} />
+      <ProductsClient initialCategorySlug={resolvedParams.category} />
     </Suspense>
   );
 }
